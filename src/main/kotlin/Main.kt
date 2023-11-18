@@ -21,11 +21,11 @@ fun main() {
 
     } while (true)
 }
-
+//возвращает строковое значение
 fun generateSecretNumber(): String {
     val digits = mutableListOf<Int>()
     while (digits.size < 4) {
-        val digit = Random.nextInt(10)
+        val digit = Random.nextInt(10)// присваивание ей случайного значения от 0 до 9
         if (digits.isEmpty() && digit == 0) {
             continue
         } else if (digit !in digits) {
@@ -33,6 +33,7 @@ fun generateSecretNumber(): String {
         }
     }
     return digits.joinToString("")
+//возвращение строки, полученной путем объединения элементов списка `digits` без разделителей
 }
 
 fun readGuessNumber(): String {
@@ -44,7 +45,9 @@ fun readGuessNumber(): String {
     }
     return guess
 }
-
+//мы проходимся по индексам элементов строки
+//На каждой итерации проверяем, совпадает ли
+// значение элемента строки guess по текущему индексу с соответствующим значением элемента строки secret
 fun calculateBullsAndCows(guess: String, secret: String): Pair<Int, Int> {
     var bulls = 0
     var cows = 0
